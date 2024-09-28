@@ -14,9 +14,12 @@ exports.contact = async (req, res) => {
             })
         }
 
-        // find user in database
+        // seve contact data on database
         const contactData = await new contactModule({ name,email,phoneNo,companyName,message }).save()
         console.log(contactData)
+
+
+        //send email by nodemailer
 
         let sub = "Thank You for Contacting CODEDEV"
         let msg = `
@@ -37,7 +40,7 @@ Codedev
 codedevservices@gmail.com
 https://www.codedevservices.com
         `
-        let sendToCliant = sendEmail(email, sub, msg )
+        let sendToClient = sendEmail(email, sub, msg )
 
         let msg_for_com = `
 Contacting Codedev
@@ -47,12 +50,15 @@ Email: ${email},
 Company name: ${companyName},
 message: ${message}
         `
-        let sendToTeam = sendEmail("ujjwal21aman08@gmail.com", "some one contact", msg_for_com )
+        let sendToTeam = sendEmail(process.env.TEAM_EMAIL, "Someone contact at website", msg_for_com )
 
-        if (!sendToCliant || !sendToTeam){
+
+        //check email send or not
+
+        if (!sendToClient || !sendToTeam){
             console.log(`
             email send status
-            cliant: ${sendToCliant}
+            cliant: ${sendToClient}
             team: ${sendToTeam}
                 `)
         }
