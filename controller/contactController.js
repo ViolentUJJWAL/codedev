@@ -25,7 +25,7 @@ exports.contact = async (req, res) => {
         let msg = `
 Dear ${name},
 
-Thank you for reaching out to [Your Company Name]. We have received your message and appreciate you taking the time to contact us. Our team is reviewing your inquiry, and we will get back to you as soon as possible.
+Thank you for reaching out to Codedev. We have received your message and appreciate you taking the time to contact us. Our team is reviewing your inquiry, and we will get back to you as soon as possible.
 
 If you need immediate assistance, feel free to contact us at +91 8209751765 or +91 6367126474 or reply to this email.
 
