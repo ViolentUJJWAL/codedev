@@ -1,5 +1,6 @@
 const colors = require('colors')
 const express = require("express")
+const cors = require("cors")
 require("dotenv").config()
 const contactRoutes = require("./routes/contactRoutes")
 
@@ -12,8 +13,12 @@ const appServer = async () => {
         // rest object
         const app = express()
 
+        
+
         // middelware
-        // app.use(cors())
+        app.use(cors({
+            origin: '*' // This allows all origins
+        }));
         app.use(express.json())
 
         // routes
