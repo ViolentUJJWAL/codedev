@@ -17,7 +17,7 @@ const appServer = async () => {
 
         // middelware
         app.use(cors({
-            origin: '*' // This allows all origins
+            origin: ['*', "localhost:5173"] // This allows all origins
         }));
         app.use(express.json())
 
