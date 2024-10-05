@@ -17,7 +17,7 @@ const appServer = async () => {
 
         // middelware
         app.use(cors({
-                origin: "http://localhost:5173",
+                origin: ["*","http://localhost:5173", "https://www.codedevservices.com"],
                 credentials: true,
             })
         );
